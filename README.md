@@ -12,7 +12,7 @@ python -m pip install --upgrade pip
 ```
 ### Установить зависимости
 ```
-python -m pip install -r requirement.txt
+python -m pip install -r requirements.txt
 ```
 ### из файла .env.example сделать файл .env
 ## Запуск с помощью docker-compose
