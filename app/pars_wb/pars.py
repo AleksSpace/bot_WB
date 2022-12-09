@@ -4,8 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-from pars_wb.settings import service
-# from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+# from pars_wb.settings import service
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from app.bot import logger
 
@@ -15,11 +15,11 @@ URL = os.getenv("URL")
 
 
 def get_product(articul, product):
-    driver = webdriver.Chrome(service=service)
-    # driver = webdriver.Remote(
-    #     "http://selenium:4444/wd/hub",
-    #     desired_capabilities=DesiredCapabilities.CHROME,
-    # )
+    # driver = webdriver.Chrome(service=service)
+    driver = webdriver.Remote(
+        "http://selenium:4444/wd/hub",
+        desired_capabilities=DesiredCapabilities.CHROME,
+    )
     driver.get(URL)
     driver.maximize_window()
     sleep(PAUSE_DURATION_SECONDS)
