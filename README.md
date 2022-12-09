@@ -15,6 +15,7 @@ python -m pip install --upgrade pip
 python -m pip install -r requirement.txt
 ```
 ### из файла .env.example сделать файл .env
+## Запуск с помощью docker-compose
 ### Собрать контейнер
 ```
 docker-compose build
@@ -26,3 +27,5 @@ docker-compose up
 ### Зайти в телеграм и написать своему боту артикул товара и название товара
 Пример:
 * 37260674 Омега 3
+## Запустить бота локально
+Закомментируйте строки 8, 19 - 22 и раскомментируйте строки 7 и 18
