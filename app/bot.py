@@ -3,7 +3,7 @@ import logging
 
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv
-from pars_wb.pars import get_product
+from app.pars_wb.pars import get_product
 
 load_dotenv()
 

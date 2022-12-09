@@ -7,4 +7,4 @@ COPY  . /code
 RUN python3 -m pip install --upgrade pip && \
     pip3 install -r /code/requirements.txt --no-cache-dir
 
-CMD python3 app.bot
+CMD python3 app/bot.py
