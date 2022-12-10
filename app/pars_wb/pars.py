@@ -4,22 +4,25 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-# from pars_wb.settings import service
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from pars_wb.settings import service
 
-from app.bot import logger
+from dotenv import load_dotenv
+
+from pars_wb.config import logger
 
 from pars_wb.constants import PAUSE_DURATION_SECONDS, ERROR_SEARCHE_MESSAGE, LOG_DEBAG_PARS_ELEMENT
 
-URL = os.getenv("URL")
+load_dotenv()
 
+
+try:
+    URL = os.getenv("URL")
+except KeyError as error:
+    logger.critical(f"Отсутствует обязательная переменная окружения: {error}!")
+    quit()
 
 def get_product(articul, product):
-    # driver = webdriver.Chrome(service=service)
-    driver = webdriver.Remote(
-        "http://selenium:4444/wd/hub",
-        desired_capabilities=DesiredCapabilities.CHROME,
-    )
+    driver = webdriver.Chrome(service=service)
     driver.get(URL)
     driver.maximize_window()
     sleep(PAUSE_DURATION_SECONDS)

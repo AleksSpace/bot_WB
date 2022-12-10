@@ -1,25 +1,14 @@
 import os
-import logging
-from logging.handlers import RotatingFileHandler
 
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv
-from app.pars_wb.constants import START_MESSAGE, LOG_DEBAG_START_MESSAGE, LOG_DEBAG_START_PARSER
-from app.pars_wb.pars import get_product
+from pars_wb.constants import START_MESSAGE, LOG_DEBAG_START_MESSAGE, LOG_DEBAG_START_PARSER
+from pars_wb.pars import get_product
+
+from pars_wb.config import logger
 
 load_dotenv()
 
-
-logging.basicConfig(
-    level=logging.INFO,
-    filename="app.log",
-    filemode="w",
-    format="%(name)s - %(levelname)s - %(message)s",
-)
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = RotatingFileHandler("app.log", maxBytes=50000000, backupCount=5)
-logger.addHandler(handler)
 
 try:
     BOT_TOKEN = os.getenv("BOT_TOKEN")
